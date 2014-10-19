@@ -1,0 +1,19 @@
+{
+  "name": "flatlanders",
+  "version": "0.0.0",
+  "authors": [
+    "Neil Hoff <neilhoff@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.26",
+    "bootstrap-sass-official": "~3.2.0+2"
+  }
+}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="gemStore">
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/products.js"></script>
+    </head>
+    <body ng-controller="StoreController as store">
+
+        <div class="list-group">
+            <div class="list-group-item" ng-repeat="product in store.products" ng-hide="product.soldOut">
+                <h2>{{product.name}}</h2>
+                <img ng-src="{{product.images[0].full}}">
+                <h3>{{product.price | currency}}</h3>
+                <product-panels></product-panels>
+                <button ng-show="product.canPurchase"> Add to Cart</button>
+            </div>
+        </div>
+    </body>
+</html>

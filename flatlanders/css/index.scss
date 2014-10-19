@@ -1,0 +1,11 @@
+// Import TwitterBootstrap
+@import '../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap';
+
+.ng-invalid.ng-dirty {
+  border-color: #FA787E;
+}
+
+.ng-valid.ng-dirty {
+ border-color: #78FA89;
+
+}
