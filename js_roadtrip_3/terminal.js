@@ -1,3 +1,4 @@
+// Section 1
 var greeting;
 var newCustomer = true;
 
@@ -10,11 +11,16 @@ if (newCustomer) {
     greeting = function() {
         alert("Welcome back to the badlands!")
     };
-
 }
-
-closeTerminal(greeting);
 
 function closeTerminal(message){
+
     message();
 }
+
+$(document).ready(function(){
+    $("#closeTerminal").click(function(){
+      closeTerminal(greeting);
+    });
+
+});
