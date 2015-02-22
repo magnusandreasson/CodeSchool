@@ -1,6 +1,7 @@
 
-body {
+html, body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #404040;
 }
 .title {
     font-size: 3em;
@@ -8,6 +9,6 @@ body {
 .section {
     border: 1px solid #d3d3d3;
     padding: 10px;
-    margin-left: 10px;
-    margin-bottom: 10px;
+    width: 960px;
+    margin: 10px auto;
 }
