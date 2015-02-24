@@ -14,7 +14,6 @@ if (newCustomer) {
 }
 
 function closeTerminal(message){
-
     message();
 }
 
@@ -44,7 +43,26 @@ var parkRides = [ ["Birch Bumpers", 40], ["Pines Plunge", 55],
 var fastPassQueue = ["Ceader Coaster", "Pines Plunge", "Birch Bumpers", "Pines Plunge"];
 
 function buildTicket (allRides, passRides, pick){
+    // allRides is the array of the rides and their wait times
+    // passRides is the array of next available Fast Pass rides
+    // pick is the ride that our customer wants a ticket for
 
+    // if the next available Fast Pass is for the ride that the customer wants, we'll give them that pass
+    if(passRides[0] == pick){
+       var pass = passRides.shift();
+        return function() {
+            alert("Quick! You've got a Fast Pass to " + pass + "!");
+        };
+    } else {
+        for(var i=0; i < allRides.length; i++){
+            if(allRides[i][0] == pick){
+                return function() {
+                    alert("A ticket is printing for " + pick + "!\n" +
+                          "Your wait time is about " + allRides[i][1] + " minutes.");
+                };
+            }
+        }
+    }
 };
 
 
@@ -56,6 +74,13 @@ $(document).ready(function(){
     $("#closeTerminal").click(function(){
       closeTerminal(greeting);
     });
+
+    //Run Section 3
+    $('#selectRide').on('change', function() {
+        //Get the value of the select box and call the returned function
+        buildTicket(parkRides, fastPassQueue, this.value)();
+    });
+
     // Print the Sections of JavaScript using //## as a delimiter
     $.ajax({
         url : "app.js",

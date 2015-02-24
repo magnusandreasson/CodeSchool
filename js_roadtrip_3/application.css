@@ -5,6 +5,10 @@ html, body {
 }
 .title {
     font-size: 3em;
+    text-align: center;
+}
+.level {
+    text-align: center;
 }
 .section {
     border: 1px solid #d3d3d3;
