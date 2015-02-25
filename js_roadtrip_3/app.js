@@ -1,4 +1,4 @@
-// Section 1
+// Level 1 - Section 1
 var greeting;
 var newCustomer = true;
 
@@ -19,7 +19,7 @@ function closeTerminal(message){
 
 //##
 
-// Section 2
+// Level 1 - Section 2
 
 var square = function(num){
     return num * num;
@@ -36,7 +36,7 @@ console.log(results.toString());
 
 //##
 
-// Section 3
+// Level 1 - Section 3
 
 var parkRides = [ ["Birch Bumpers", 40], ["Pines Plunge", 55],
                   ["Ceader Coaster", 20], ["Ferris Wheel of Firs", 90]];
@@ -67,18 +67,42 @@ function buildTicket (allRides, passRides, pick){
 
 
 //##
+// Level 2 - Section 1
+
+function buildCoveTicketMaker(transport) {
+    return function(name) {
+        alert("Here is your transportation ticket via the " + transport + ".\n" +
+                "Welcome to the Cold Closures Cove, " + name + "!");
+    }
+}
+var buildSubmarineTicket = buildCoveTicketMaker("Submarine");
+var buildBattleshipTicket = buildCoveTicketMaker("Battleship");
+var buildSeagullTicket = buildCoveTicketMaker("Giant Seagull");
 
 
+
+//##
 $(document).ready(function(){
-    // Run Section1's button
+    // Run Level 1 Section1's button
     $("#closeTerminal").click(function(){
       closeTerminal(greeting);
     });
 
-    //Run Section 3
+    // Run level 1 Section 3
     $('#selectRide').on('change', function() {
         //Get the value of the select box and call the returned function
         buildTicket(parkRides, fastPassQueue, this.value)();
+    });
+
+    // Run Level 2 Section1
+    $("#submarine").click(function(){
+        buildSubmarineTicket($("#ship-ticket-holder-name").val());
+    });
+    $("#battleship").click(function(){
+        buildBattleshipTicket($("#ship-ticket-holder-name").val());
+    });
+    $("#seagull").click(function(){
+        buildSeagullTicket($("#ship-ticket-holder-name").val());
     });
 
     // Print the Sections of JavaScript using //## as a delimiter

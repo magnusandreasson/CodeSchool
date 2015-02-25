@@ -16,3 +16,6 @@ html, body {
     width: 960px;
     margin: 10px auto;
 }
+#ship-ticket-holder-name {
+    margin-bottom: 10px;
+}
