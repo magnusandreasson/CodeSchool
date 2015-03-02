@@ -82,6 +82,23 @@ var buildSeagullTicket = buildCoveTicketMaker("Giant Seagull");
 
 
 //##
+// Level 2 - Section 2
+function buildCoveTicketMaker2(transport) {
+    var passenger = 0;
+    return function(name) {
+        passenger++;
+        alert("Here is your transportation ticket via the " + transport + ".\n" +
+            "Welcome to the Cold Closures Cove, " + name + "!\n" +
+            "You are passenger number " + passenger + ".");
+    }
+}
+
+var buildSubmarineTicket2 = buildCoveTicketMaker2("Submarine");
+var buildBattleshipTicket2 = buildCoveTicketMaker2("Battleship");
+var buildSeagullTicket2 = buildCoveTicketMaker2("Giant Seagull");
+
+
+//##
 $(document).ready(function(){
     // Run Level 1 Section1's button
     $("#closeTerminal").click(function(){
@@ -103,6 +120,17 @@ $(document).ready(function(){
     });
     $("#seagull").click(function(){
         buildSeagullTicket($("#ship-ticket-holder-name").val());
+    });
+
+    // Run Level 2 Section3
+    $("#submarine2").click(function(){
+        buildSubmarineTicket2($("#ship-ticket-holder-name2").val());
+    });
+    $("#battleship2").click(function(){
+        buildBattleshipTicket2($("#ship-ticket-holder-name2").val());
+    });
+    $("#seagull2").click(function(){
+        buildSeagullTicket2($("#ship-ticket-holder-name2").val());
     });
 
     // Print the Sections of JavaScript using //## as a delimiter
