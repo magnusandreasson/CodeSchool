@@ -97,7 +97,18 @@ var buildSubmarineTicket2 = buildCoveTicketMaker2("Submarine");
 var buildBattleshipTicket2 = buildCoveTicketMaker2("Battleship");
 var buildSeagullTicket2 = buildCoveTicketMaker2("Giant Seagull");
 
-
+//##
+// Level 2 - Section 3
+function assignTorpedo (name, passengerArray) {
+    for (var i=0; i < passengerArray.length; i++) {
+        console.log(passengerArray[i]);
+        if(passengerArray[i] === name){
+            return function() {
+                alert("Ahoy, " + name + "!\n" + "Man your post at Torpedo #" + (i+1))
+            };
+        }
+    }
+}
 //##
 $(document).ready(function(){
     // Run Level 1 Section1's button
@@ -122,7 +133,7 @@ $(document).ready(function(){
         buildSeagullTicket($("#ship-ticket-holder-name").val());
     });
 
-    // Run Level 2 Section3
+    // Run Level 2 Section2
     $("#submarine2").click(function(){
         buildSubmarineTicket2($("#ship-ticket-holder-name2").val());
     });
@@ -131,6 +142,13 @@ $(document).ready(function(){
     });
     $("#seagull2").click(function(){
         buildSeagullTicket2($("#ship-ticket-holder-name2").val());
+    });
+
+    // Run level 2 Section 3
+    var passengers = ["R2D2", "Luke", "Leia", "Hans Solo"];
+    $("#assignTorpedo").on('change', function() {
+        console.log("called");
+        assignTorpedo(this.value, passengers)();
     });
 
     // Print the Sections of JavaScript using //## as a delimiter
