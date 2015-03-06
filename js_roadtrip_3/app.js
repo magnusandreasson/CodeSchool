@@ -109,6 +109,34 @@ function assignTorpedo (name, passengerArray) {
         }
     }
 }
+
+//##
+// Level 3 - Section 1
+
+function capacityStatus (numPassengers, capacity) {
+    // If train is full -
+    //    Execute a function that alerts a message that no seats remain and returns false
+    // If train is not full -
+    //    Execute a function that alerts a message with how many seats remain and then returns true
+
+    if(numPassengers == capacity) {
+       noSeats();
+    }
+    else {
+        seatsAvail();
+    }
+    function noSeats () {
+        alert("No Seats!");
+        return false;
+    };
+
+    function seatsAvail(){
+        alert("There are " + (capacity - numPassengers) + " seats left.");
+        return true;
+    };
+}
+
+
 //##
 $(document).ready(function(){
     // Run Level 1 Section1's button
@@ -149,6 +177,13 @@ $(document).ready(function(){
     $("#assignTorpedo").on('change', function() {
         console.log("called");
         assignTorpedo(this.value, passengers)();
+    });
+
+    // Run Level 3 Section 1
+
+    $("#seats-avail").click(function(){
+        capacityStatus($("#num-passengers").val(), $("#capacity").val());
+
     });
 
     // Print the Sections of JavaScript using //## as a delimiter
