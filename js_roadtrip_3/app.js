@@ -136,6 +136,15 @@ function capacityStatus (numPassengers, capacity) {
     };
 }
 
+//##
+// Level 4 - Section 1
+
+var booksArray = ["Atlas Shrugged", "The Girl with the Dragon Tattoo", "Steelheart" ];
+var myBox = {height: 6, width: 8, length: 10, volume: 480,
+             material: "cardboard",
+             contents: booksArray
+            };
+
 
 //##
 $(document).ready(function(){
@@ -185,6 +194,25 @@ $(document).ready(function(){
         capacityStatus($("#num-passengers").val(), $("#capacity").val());
 
     });
+
+    // Run Level 4 Section 1
+    $("#boxWidth").html(myBox.width);
+    $("#boxMaterial").html(myBox.material);
+    $("#boxContents").html(myBox.contents);
+
+    $("#updateWidth").click(function(){
+        myBox.width = $("#widthInput").val();
+
+        $("#boxWidth").html(myBox.width);
+    });
+
+    $("#updateContents").click(function(){
+        myBox.contents.push($("#contentsInput").val());
+
+        $("#boxContents").html(myBox.contents);
+    });
+
+
 
     // Print the Sections of JavaScript using //## as a delimiter
     $.ajax({
