@@ -144,6 +144,31 @@ var myBox = {height: 6, width: 8, length: 10, volume: 480,
              material: "cardboard",
              contents: booksArray
             };
+//##
+// Level 4 - Section 2
+
+var aquarium =  {
+    Nemo:  { type: "fish", species: "clownfish", length: 3.7 },
+    Peach: { type: "echinoderm", species: "starfish", length: 5.3 },
+    "Coral Castle": { type: "environment", material: "coquina", moves: false},
+
+    addCritter: function (name, type, species, length){
+        this[name] = {type: type, species: species, length: length};
+    },
+
+    addToy: function (name, type, material, moves ){
+        this[name] = {type: type, material: material, moves: moves};
+    }
+};
+
+// Create the delete function. This could have been done inside the aquarium object.
+// We are just demonstrating how to add a function after the object has been initialized.
+aquarium.takeOut = function (name) {
+    this[name].name = name; // Create new name property so that we can return the name of the property
+    var temp = this[name];
+    delete this[name];
+    return temp;
+};
 
 
 //##
@@ -211,6 +236,23 @@ $(document).ready(function(){
 
         $("#boxContents").html(myBox.contents);
     });
+
+    // Run Level 4 Section 2
+    for (var key in aquarium){
+        if (aquarium.hasOwnProperty(key)){
+            if (aquarium[key]["type"] == "fish" || aquarium[key]["type"] == "echinoderm"){
+                console.log(key + " -> " + aquarium[key]["type"]);
+                $("table#aquarium").append("<tr><td class='name'>" + key + "</td><td>" + aquarium[key]["type"]+ "</td><td>"  + aquarium[key]["species"] + "</td><td>" + aquarium[key]["length"] +  "</td></tr>")
+            }
+            else if (aquarium[key]["type"] == "environment" ){
+                console.log(key + " -> " + aquarium[key]["type"]);
+                $("table#aquarium").append("<tr><td class='name'>" + key + "</td><td>" + aquarium[key]["type"] + "</td><td>"  + aquarium[key]["material"] + "</td><td>" + aquarium[key]["moves"] + "</td></tr>")
+            }
+
+        }
+
+    }
+
 
 
 

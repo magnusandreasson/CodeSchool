@@ -19,3 +19,11 @@ html, body {
 .name-input{
     margin-bottom: 10px;
 }
+
+table#aquarium tr td.name {
+    background: steelblue;
+    color: white;
+}
+table#aquarium tr td {
+    padding: 10px;
+}
