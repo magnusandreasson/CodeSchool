@@ -170,7 +170,19 @@ aquarium.takeOut = function (name) {
     return temp;
 };
 
+//##
+// Level 4 - Section 3
 
+// Count the fish in the Aquarium
+aquarium.countFish = function () {
+    var numFish = 0;
+    for ( var key in this) {
+        if ( this[key].type == "fish" ){
+            numFish++;
+        }
+    }
+    return numFish;
+};
 //##
 $(document).ready(function(){
     // Run Level 1 Section1's button
@@ -252,6 +264,10 @@ $(document).ready(function(){
         }
 
     }
+
+    // Run Level 4 Section 3
+
+    $("#num-fish").append(" " + aquarium.countFish());
 
 
 
