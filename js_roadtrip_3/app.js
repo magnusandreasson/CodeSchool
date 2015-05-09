@@ -183,6 +183,32 @@ aquarium.countFish = function () {
     }
     return numFish;
 };
+
+//##
+// Level 5 - Section 1
+
+var witch = "I'll get you, my pretty...and your little dog, too!";
+var scarecrow = "Well, some people without brains do an awful lot of talking don't they?";
+var dorothy = "There's no place like home.";
+var lion = "Come on, get up and fight, you shivering junkyard!";
+
+var woz = [witch, scarecrow, dorothy, lion];
+
+String.prototype.countAll = function (letter) {
+    var letterCount = 0;
+    for(var i=0; i < this.length; i++) {
+        if(this.charAt(i).toUpperCase() == letter.toUpperCase()){
+            letterCount++;
+        }
+    }
+    return letterCount;
+};
+
+//##
+// Level 5 - Section 2
+
+
+
 //##
 $(document).ready(function(){
     // Run Level 1 Section1's button
@@ -269,6 +295,23 @@ $(document).ready(function(){
 
     $("#num-fish").append(" " + aquarium.countFish());
 
+
+
+    // Run level 5 Section 1
+
+    // Add all the strings to the first column of the table
+    for(var w=0; w<woz.length; w++){
+        $("#wizard-of-oz table").append("<tr><td>" + (w+1) + ". " + woz[w] + "</td><td></td></tr>");
+    }
+
+    // Count the letters in each string and add the count to the second column in the table
+    $("#woz-num-characters").click(function(){
+        var wozCount = 0;
+        $("#wizard-of-oz table tr td:nth-child(2)").each(function() {
+            $(this).html(woz[wozCount].countAll($("#woz-character").val()));
+            wozCount++;
+        });
+    });
 
 
 
