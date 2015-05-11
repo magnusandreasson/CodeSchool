@@ -207,6 +207,22 @@ String.prototype.countAll = function (letter) {
 //##
 // Level 5 - Section 2
 
+// Create a Shoe constructor. Note the capital S in Shoe.  Each shoe owns these variables
+function Shoe(shoeSize, shoeColor, forGender, constructStyle){
+    this.size = shoeSize;
+    this.color = shoeColor;
+    this.gender = forGender;
+    this.construction = constructStyle;
+}
+
+// Share these functions between all shoes with a Prototype.  These are inherited so they are only created once
+Shoe.prototype = {
+    putOn: function() { return "Your " + this.construction + "'s on!";},
+    takeOff: function() { return "Phew! Somebody's size " + this.size + "'s Uh, what's that smell?";}
+};
+
+var nike = new Shoe(9,"Blue","male","high-tops");
+
 
 
 //##
@@ -312,6 +328,27 @@ $(document).ready(function(){
             wozCount++;
         });
     });
+
+
+    // Run level 5 Section 2
+
+    $("#toggle-shoe").click(function(){
+        if( $(this).attr("class") == "off"){
+            var shoeStatus = nike.putOn();
+            var button = "Take your shoes off"
+        }
+        else {
+            var shoeStatus = nike.takeOff();
+            var button = "Put your shoes on"
+        }
+
+        $("#shoe-status").html(shoeStatus);
+        $(this).html(button);
+        $(this).toggleClass("on off");
+
+    });
+
+
 
 
 
