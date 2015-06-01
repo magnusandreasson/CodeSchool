@@ -11,6 +11,17 @@
         return weapon == "Excalibur" ? "Welcome King Arthur here is your " + weapon : "Here is your " + weapon;
     }
 
+//##
+
+// Level 1 - Section 2
+
+    var armory = {
+        addSword: function(sword) {
+            this.swords = this.swords || [];
+            this.swords.push(sword);
+        }
+    };
+
 
 
 //##
@@ -29,6 +40,21 @@ $(document).ready(function(){
         $(this).val() === "True" ? isKing = true : isKing = false;
         $("#weapon").html(weaponGreeting(whichWeapon()));
         console.log(isKing);
+    });
+
+    // Run Level 1: Section 2
+    $("#armory").html(armory.swords);
+
+    $("#addToArmory").click(function() {
+        armory.addSword($("#sword").val() + "<br />");
+        $("#armory").html(armory.swords);
+    });
+
+    $("#sword").keydown(function (e){
+        if(e.keyCode == 13){
+            armory.addSword($("#sword").val() + "<br />");
+            $("#armory").html(armory.swords);
+        }
     });
 
     // Print the Sections of JavaScript using //## as a delimiter

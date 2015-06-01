@@ -19,3 +19,15 @@ html, body {
 .name-input{
     margin-bottom: 10px;
 }
+
+.submit{
+    margin-top: 10px;
+    padding:5px;
+}
+
+#armory {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px dashed lightgrey;
+    max-width: 200px;
+}
