@@ -22,6 +22,26 @@
         }
     };
 
+    function printArmory() {
+        var prettyArmory = $.map( armory.swords, function( sword, index ) {
+            return ( sword + "<br />");
+        });
+        $("#armory").html(prettyArmory);
+    };
+
+//##
+
+// Level 1 - Section 3
+    armory.addSword("Broad Sword");
+    armory.addSword("Scimitar");
+    var isKnight = false;
+
+    armory.retrieveSword = function(request) {
+        // If the inedexOf the request is -1 that means it is not in the array.
+        return(this.swords.indexOf(request) >=0) ?
+            this.swords.splice(this.swords.indexOf(request), 1)[0] :
+            "No " + request + ", exists!";
+    };
 
 
 //##
@@ -43,19 +63,33 @@ $(document).ready(function(){
     });
 
     // Run Level 1: Section 2
-    $("#armory").html(armory.swords);
+    printArmory();
 
     $("#addToArmory").click(function() {
-        armory.addSword($("#sword").val() + "<br />");
-        $("#armory").html(armory.swords);
+        armory.addSword($("#sword").val());
+        printArmory();
     });
 
     $("#sword").keydown(function (e){
         if(e.keyCode == 13){
-            armory.addSword($("#sword").val() + "<br />");
-            $("#armory").html(armory.swords);
+            armory.addSword($("#sword").val());
+            printArmory();
         }
     });
+
+    // Run Level 1: Section 3
+    $('input[type=radio][name=isKnight]').change(function() {
+        $(this).val() === "True" ? isKnight = true : isKnight = false;
+    });
+
+    $("#getSword").click(function() {
+        var weapon = isKnight && armory.retrieveSword($("#getSwordInput").val());
+        console.log(weapon);
+        printArmory();
+        $("#mySword").html(weapon);
+
+    });
+
 
     // Print the Sections of JavaScript using //## as a delimiter
     $.ajax({
