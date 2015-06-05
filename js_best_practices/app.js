@@ -43,6 +43,24 @@
             "No " + request + ", exists!";
     };
 
+//##
+
+// Level 2 - Section 1
+    var treasureChest = {
+      goldCoins: "10,000",
+      magicalItem: "Crown of Speed",
+      necklaces: ["ruby", "pearl", "sapphire", "diamond"],
+      openLid: function () {
+            alert("Creeeak!");
+        }
+    };
+
+    // Loop through each item in a more efficient way
+    var list = treasureChest.necklaces;
+    for(var i = 0, x = list.length; i < x; i++){
+        console.log(list[i]);
+    }
+
 
 //##
 $(document).ready(function(){
