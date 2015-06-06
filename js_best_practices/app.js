@@ -63,6 +63,29 @@
 
 
 //##
+
+// Level 2 - Section 3
+
+    $(document).ready(function(){
+
+
+        // Fragments help with loading items in the dom so you don't have to reflow (performance hit) for each appended item.
+        var  list = document.getElementById("kotwList"),
+             kotw = [ "Jenna Rangespike",
+                     "Neric Farthing",
+                     "Darkin Stonefield"
+                    ],
+            fragment = document.createDocumentFragment(),
+            element;
+        for (var i= 0, x=kotw.length; i < x; i++){
+            element = document.createElement("li");
+            element.appendChild( document.createTextNode( kotw[i]));
+            fragment.appendChild(element);
+        }
+        // Only add to the dom once
+        list.appendChild(fragment);
+    });
+//##
 $(document).ready(function(){
 
     //  Run Level 1: Section 1
