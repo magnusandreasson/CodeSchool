@@ -85,6 +85,67 @@
         // Only add to the dom once
         list.appendChild(fragment);
     });
+
+
+//##
+
+// Level 2 - Section 5
+
+
+    // Constructor
+    function SpeedTest(testImplement, testParams, repetitions){
+        this.testImplement = testImplement;
+        this.testParams = testParams;
+        this.repititions = repetitions || 10000;
+        this.average = 0;
+    }
+
+    // Create a prototype to allow all versions of the SpeedTest to connect here instead of creating the methods in each instance.
+    // Saves memory and speeds up processing
+    SpeedTest.prototype = {
+        startTest: function(title) {
+            var beginTime, endTime, sumTimes = 0;
+            for (var i = 0, x = this.repititions; i < x; i++){
+                beginTime = +new Date();
+                this.testImplement( this.testParams);
+                endTime = +new Date();
+                sumTimes += endTime - beginTime;
+            }
+            this.average = sumTimes / this.repititions;
+            return console.log(title + ": Average execution across " + this.repititions + ": " + this.average);
+        }
+    };
+
+    var firstRegimentNewbs = ["Grimble Horsehead", "Jark Winterborn", "Bunder Ropefist", "Ernst Breadbaker"];
+    var firstRegimentKnights = [];
+
+    var listsForTests = [firstRegimentNewbs, firstRegimentKnights];
+
+    // Poor performance code for test
+    var noBP = function ( listOfParams) {
+        for(var i = 0; i < listOfParams[0].length; i++){
+            var newGuy = listOfParams[0][i];
+            listOfParams[1].push(newGuy);
+        }
+    };
+
+    var noBPtest = new SpeedTest(noBP, listsForTests, 100000);
+    noBPtest.startTest("Poor Performance");
+
+    // Best Practices code for test
+    var bp = function ( listOfParams) {
+        for(var i = 0, x = listOfParams[0].length; i < x; i++){
+            listOfParams[1].push(listOfParams[0][i]);
+        }
+    };
+
+
+    var bpTest = new SpeedTest(bp, listsForTests, 100000);
+    bpTest.startTest("Best Practices");
+
+
+
+
 //##
 $(document).ready(function(){
 
