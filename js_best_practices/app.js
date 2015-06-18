@@ -143,7 +143,28 @@
     var bpTest = new SpeedTest(bp, listsForTests, 100000);
     bpTest.startTest("Best Practices");
 
+//##
 
+// Level 4 - Section 1
+
+// Namespaces are in all caps by convention
+var HOFMASTER = {
+    list: ["Jar Treen", "Maximo Rarter", "Pol Grist"],
+    hof: document.getElementById("hof"),
+    fragment: document.createDocumentFragment(),
+    element: undefined,
+    displayHOF: function() {
+        // Setup the variable x in the first section of the for loop for performance boost
+        for(var i = 0, x = this.list.length; i < x; i++){
+            this.element = document.createElement("li");
+            this.element.appendChild(document.createTextNode(this.list[i]));
+            // Use a fragment for a DOM performance boost.  This will only reload the DOM once when it is appended after the for loop
+            this.fragment.appendChild(this.element);
+        }
+        this.hof.appendChild(this.fragment);
+    }
+
+};
 
 
 //##
