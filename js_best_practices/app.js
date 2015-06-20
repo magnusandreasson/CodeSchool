@@ -168,6 +168,30 @@ var HOFMASTER = {
 
 
 //##
+
+// Level 4 - Section 3
+
+var wartime = true;
+
+// ARMORY is the namespace with an import of the global variable 'wartime' as war
+var ARMORY = (function(war){
+    // Private variables and functions
+    var weaponList = ["Axe", "Broad Sword"];
+
+    // Global functions
+    return {
+      makeWeaponRequest: function(){
+          if(war){
+              // This uses the now local variable war that was imported from wartime
+          }
+      }
+    };
+// You need to import the global variable here
+})(wartime);
+
+
+
+//##
 $(document).ready(function(){
 
     //  Run Level 1: Section 1
