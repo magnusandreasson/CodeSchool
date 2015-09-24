@@ -1,5 +1,5 @@
 angular.module("NoteWrangler")
-.controller("NotesShowController", function($http, $routeParams) {
+.controller("UsersShowController", function($http, $routeParams) {
 
 
 });
