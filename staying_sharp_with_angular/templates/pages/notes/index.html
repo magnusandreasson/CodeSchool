@@ -5,8 +5,11 @@
         </div>
 
         <div class="note-wrapper">
-            <nw-card></nw-card>
-            test
+            <div class="card-notes"
+               ng-repeat="note in notes"
+               ng-href="#/notes/{{note.id}}">
+                <nw-card icon="note.icon" title="note.title" description="note.description" body="note.content"></nw-card>
+            </div>
         </div>
     </div>
 </div>

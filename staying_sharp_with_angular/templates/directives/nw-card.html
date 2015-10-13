@@ -1,12 +1,11 @@
-<a class="card-notes"
-   ng-repeat="note in indexController.notes"
-   ng-href="#/notes/{{note.id}}">
-
-    <div class="card" title="{{note.title}}">
-        <div ng-if="icon">
-            <i class="icon icon-card {{note.icon}}"></i>
-        </div>
-        <h2 class="h3">{{note.title}}</h2>
-        <p>{{note.description}}</p>
+<div class="card" title="{{title}}">
+    <div ng-if="icon">
+        <i class="icon icon-card {{icon}}"></i>
     </div>
-</a>
+    <h2 class="h3">{{title}}</h2>
+    <p>{{description}}</p>
+    <div class="card-hidden">
+        <a ng-href="#/notes/{{id}}" ng-bind-html="body"></a>
+    </div>
+
+</div>
