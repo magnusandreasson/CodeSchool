@@ -1,5 +1,6 @@
 angular.module('NoteWrangler')
     .controller('UsersIndexController', function($scope, $http, Gravatar){
+
         $scope.gravatarUrl = function(email) {
             return Gravatar.generate(email);
         };
