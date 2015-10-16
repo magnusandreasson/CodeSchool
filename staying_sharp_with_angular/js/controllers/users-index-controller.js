@@ -1,8 +1,11 @@
 angular.module('NoteWrangler')
-    .controller('UsersIndexController', function($http){
-        var controller = this;
+    .controller('UsersIndexController', function($scope, $http, Gravatar){
+        $scope.gravatarUrl = function(email) {
+            return Gravatar.generate(email);
+        };
+
 
         $http({method: 'get', url: 'json/users.json'}).success(function(data){
-            controller.users = data;
+            $scope.users = data;
         });
     });

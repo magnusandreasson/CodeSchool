@@ -4,13 +4,10 @@
 
         <div class="users-wrapper">
             <a class="card-users"
-               ng-repeat="user in indexController.users"
+               ng-repeat="user in users"
                ng-href="#/users/{{user.username}}">
 
-                <div class="card" title="{{user.name}}">
-                    <h2 class="h3">{{user.name}}</h2>
-                    <p>{{user.bio}}</p>
-                </div>
+                <nw-card title="user.name" body="user.bio" image="gravatarUrl(user.email)" id="user.id"></nw-card>
             </a>
         </div>
     </div>

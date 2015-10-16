@@ -7,7 +7,9 @@ angular.module('NoteWrangler')
                 title: "=",
                 body: "=",
                 icon: "=",
-                description: "="
+                description: "=",
+                image: "=",
+                id: "="
             },
             link: function(scope, element) {
                scope.body = $sce.trustAsHtml(markdown.toHTML(scope.body));
